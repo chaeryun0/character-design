@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character</title>
+    <style>
+      /* animation */
+
+      @keyframes dog {
+        0% {
+            transform: scale(0.8);
+        }
+
+        25% {
+            transform: scale(1) rotate(10deg);
+        }
+
+        50% {
+            transform: scale(1) rotate(0deg);
+        }
+
+        75% {
+            transform: scale(1) rotate(0deg);
+        }
+
+        100% {
+            transform: scale(0.8) rotate(0deg);
+        }
+      }
+
+      @keyframes doghover {
+        0% {
+            transform: scale(0.8);
+        }
+
+        25% {
+            transform: scale(1) rotate(10deg);
+        }
+
+        50% {
+            transform: scale(1) rotate(0deg);
+        }
+
+        75% {
+            transform: scale(1) rotateY(180deg);
+        }
+
+        100% {
+            transform: scale(0.9) rotate(0deg);
+        }
+      }
+      
+      @keyframes 모자 {
+        from {
+            transform: scale(1.1) rotate(-5deg);
+        }
+      }
+
+      @keyframes 눈움직임 {
+        0% {
+        }
+
+        25% {
+          transform: translate(0px, 0px);
+        }
+
+        50% {
+          transform: translate(0px, 10px);
+        }
+
+        75% {
+          transform: translate(10px, 10px);
+        }
+
+        100% {
+          transform: translate(10px, 0px);
+        }
+      }
+
+
+      @keyframes 오른쪽귀 {
+        to {
+          transform: rotate(-100deg) translate(10px);
+        }
+      }
+      @keyframes 왼쪽귀 {
+        to {
+          transform: rotate(100deg) translate(-10px);
+        }
+      }
+
+      @keyframes 입움직임 {
+          0%, 100% {
+              transform: translate3d(0, 0, 0);
+          }
+          10%, 30%, 50%, 70%, 90% {
+              transform: translate3d(-1px, -1px, 1px);
+          }
+          20%, 40%, 60%, 80% {
+              transform: translate3d(1px, -2px, 1px);
+          }
+        }
+
+      @keyframes 혀 {
+        form {
+          transform: scale(0.7);
+        }
+        to {
+          transform: scale(1.3);
+        }
+      }
+
+      @keyframes 혀라인 {
+        form {
+          transform: rotate(90deg) scale(0.7);
+        }
+        to {
+          transform: rotate(90deg) scale(1.2);
+        }
+      }
+
+      @keyframes 볼터치 {
+        from {
+            transform: scale(1);
+        }
+
+        to {
+            transform: scale(1.2);
+        }
+      }
+
+      @keyframes 눈썹 {
+        from {
+          opacity: 0%;
+        }
+        to {
+          opacity: 100%;
+        }
+      }
+
+      @keyframes 혀숨기기 {
+        from {
+          opacity: 100%;
+        }
+        to {
+          opacity: 0%;
+        }
+      }
+
+      /* setting */
+      :root {
+        --pri: #f2f2f2;
+        --sec: antiquewhite;
+        --darkPink: #e6666a;
+        --pink: lightpink;
+      }
+      /* reset */
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* layout */
+      /* design */
+      *,
+      *:after,
+      *:before {
+        box-sizing: border-box;
+      }
+
+      .dog {
+        position: relative;
+        margin: 250px auto;
+        width: 300px;
+        height: 300px;
+        animation: dog 4s infinite alternate;
+      }
+
+      /* hover */
+      .dog:hover {
+        animation: doghover 5s infinite alternate;
+        cursor: pointer;
+      }
+      .dog:hover .face {
+        z-index: 5;
+      }
+      .dog:hover .hat.scale {
+        top: -165px;
+        left: 100px;
+        transform: scale(30deg);
+        display: block;
+        animation: 모자 1s infinite alternate;
+      }
+      .dog:hover .hat .circle {
+        position: absolute;
+        top: -9px;
+        left: -20px;
+        width: 38px;
+        height: 38px;
+        background-color: black;
+        border-radius: 50%;
+      }
+      .dog:hover .hat {
+        z-index: 10;
+      }
+      .face:hover {
+        position: absolute;
+        bottom: 0;
+        width: 400px;
+        height: 330px;
+        border: 7px solid black;
+        border-radius: 70%;
+        background-color: var(--pri);
+        z-index: 3;
+      }
+
+      .dog:hover .eyebrow {
+        animation: 눈썹 1s alternate forwards;
+      }
+      
+      .dog:hover .tongueline {
+        animation: 혀숨기기 1s alternate forwards;
+      }
+
+      .dog:hover .ear.left {
+        width: 120px;
+        top: 10px;
+        left: -10px;
+        height: 250px;
+        border-radius: 55% 55% 50% 50%;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        animation: 왼쪽귀 0.9s infinite alternate;
+      }
+      .dog:hover .ear.right {
+        width: 120px;
+        top: 10px;
+        right: -108px;
+        height: 250px;
+        border-radius: 55% 78% 60% 60%;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        animation: 오른쪽귀 0.9s infinite alternate;
+      }
+      .dog:hover .tongue {
+        position: absolute;
+        width: 50px;
+        height: 65px;
+        top: 210px;
+        left: 173px;
+        z-index: -1;
+        border: 5px solid black;;
+        background-color: var(--darkPink);
+        border-radius: 50% 50% 50% 50%;
+      }
+
+      .dog:hover .arm {
+        display: none;
+      }
+
+      .dog:hover .bae {
+        width: 110px;
+        height: 110px;
+        top: 92px;
+        left: 43px;
+        border-radius: 60% 60% 50% 50%;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .dog:hover .bae::after,
+      .dog:hover .bae::before {
+        display: none;
+      }
+
+      .dog:hover .chicken {
+        width: 160px;
+        height : 110px;
+        top: 165px;
+        left: 25px;
+      }
+      .dog:hover .chicken::before {
+        top: 10px;
+        left: 157px;
+        width: 70px;
+        height: 45px;
+        transform: rotate(-13deg);
+      }
+      .dog:hover .chicken::after {
+        top: 50px;
+        left: -68px;
+        width: 70px;
+        height: 45px;
+        transform: rotate(-5deg);
+      }
+
+      /* 얼굴 */
+      .face {
+        position: absolute;
+        bottom: 0;
+        width: 400px;
+        height: 330px;
+        border: 7px solid black;
+        border-radius: 70%;
+        background-color: var(--pri);
+        z-index: -3;
+      }
+
+      .ear {
+        position: absolute;
+        top: 30px;
+        width: 130px;
+        height: 270px;
+        border-radius: 50%;
+        border: 7px solid black;
+        background-color: var(--pri);
+        z-index: -1;
+      }
+
+      .ear.left {
+        top: -20px;
+        left: -25px;
+        transform: rotate(30deg);
+        border-radius: 90% 79% 80% 80%;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      }
+      .ear.right {
+        top: -20px;
+        right: -135px;
+        transform: rotate(-30deg);
+        border-radius: 82% 78% 75% 75%;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      }
+
+      .hat {
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        border-bottom: calc( 96px * 1.732 ) solid var(--darkPink);
+        border-left: 95px solid transparent;
+        border-right: 95px solid transparent;
+        display: none;
+      }
+      .hat::before {
+        content: " ";
+        display: inline-block;
+        position: absolute;
+        width: 199px;
+        height: 39px;
+        top: 139px;
+        left: -99px;
+        border-radius: 40% 40%;
+        background-color: black;
+      }
+
+
+      .eyebrow {
+        opacity: 0%;
+        position: absolute;
+        top: 120px;
+        width: 50px;
+        background-color: var(--sec);
+        border: 4px solid black;
+        border-radius: 30%;
+      }
+
+      .eyebrow.right {
+        transform: rotate(10deg);
+        left: 120px;
+      }
+      .eyebrow.left {
+        transform: rotate(-10deg);
+        right: 120px;
+      }
+
+      .eye {
+        position: absolute;
+        top: 160px;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: black;
+      }
+
+      .eye.right {
+        left: 120px;
+      }
+
+      .eye.left {
+        right: 120px;
+      }
+
+      .white-eye {
+        position: absolute;
+        top: 170px;
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        background-color: var(--pri);
+        animation: 눈움직임 4s infinite alternate;
+      }
+      .white-eye.left {
+        left: 125px;
+      }
+      .white-eye.right {
+        right: 139px;
+      }
+
+      .blush.left {
+        position: absolute;
+        top: 210px;
+        left: 80px;
+        width: 50px;
+        height: 25px;
+        border-radius: 50%;
+        background: var(--pink);
+        z-index: 3;
+        animation: 볼터치 0.9s infinite alternate;
+        }
+
+      .blush.right {
+        position: absolute;
+        top: 210px;
+        right: 80px;
+        width: 50px;
+        height: 25px;
+        border-radius: 50%;
+        background: lightpink;
+        z-index: 3;
+        animation: 볼터치 0.9s infinite alternate;
+      }
+      
+      .mouth.left {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-bottom: 7px solid black;
+        border-radius: 50%;
+        top: 185px;
+        left: 150px;
+        background-color: white;
+        animation: 입움직임 4s infinite alternate;
+      }
+      .mouth.right {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-bottom: 7px solid black;
+        border-radius: 50%;
+        top: 185px;
+        right: 150px;
+        background-color: white;
+        animation: 입움직임 4s infinite alternate;
+      }
+
+      .nose {
+        position: absolute;
+        top: 195px;
+        left: 175px;
+        background: black;
+        width: 40px;
+        height: 35px;
+        border-radius: 40% 40% 50% 50%;
+      }
+      .nose::before {
+        content: " ";
+        position: absolute;
+        top: -6px;
+        left: 17px;
+        height: 10px;
+        width: 15px;
+        z-index: 2;
+        box-shadow: 0 10px 10px var(--pri);
+      }
+
+      .tongue {
+        position: absolute;
+        width: 30px;
+        height: 55px;
+        top: 210px;
+        left: 183px;
+        z-index: -1;
+        background-color: var(--darkPink);
+        border-radius: 30% 30% 50% 50%;
+        animation: 혀 1.5s infinite alternate;
+      }
+      .tongueline {
+        position: absolute;
+        top: 240px;
+        left: 183px;
+        width: 30px;
+        background-color: black;
+        border: 2px solid black;
+        border-radius: 30%;
+        transform: rotate(90deg);
+        border-radius: 50% 50% 50% 50%;
+        animation: 혀라인 1.5s infinite alternate;
+      }
+
+      /* 몸 */
+      .body {
+        position: relative;
+        top:240px;
+        left: 100px;
+        width: 205px;
+        height: 215px;
+        z-index: -5;
+        background-color: var(--pri);
+        border: 7px solid #232323;
+        border-radius: 50% 50% 40% 46%;
+      }
+
+      .body .arm.left {
+        position: absolute;
+        top: 37px;
+        left: -20px;
+        width: 80px;
+        height: 118px;
+        border: 7px solid black;
+        border-radius: 50%;
+        background-color: var(--pri);
+        transform: rotate(12deg);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      }
+
+      .body .arm.right {
+        position: absolute;
+        top: 35px;
+        left: 140px;
+        width: 80px;
+        height: 119px;
+        border: 7px solid black;
+        border-radius: 50%;
+        background-color: var(--pri);
+        transform: rotate(-12deg);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      }
+
+      .body .neck {
+        position: absolute;
+        top: 55px;
+        left: 3px;
+        width: 187px;
+        height: 20px;
+        background-color: var(--darkPink);
+        border: 5px solid black;
+        border-radius: 35%;
+      }
+
+      .bae {
+        position: absolute;
+        width: 80px;
+        height: 110px;
+        top: 92px;
+        left: 63px;
+        border-radius: 60% 60% 50% 50%;
+        background-color: white;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        z-index: -5;
+      }
+
+      .bae::after {
+        content: "밥주세요";
+        font-size: 35px;
+        padding: 37px 5px;
+        text-align: center;
+        position: absolute;
+        width: 180px;
+        height: 160px;
+        top: 20px;
+        left: -55px;
+        border: 6px solid black;
+        border-radius: 20%;
+        background-color: var(--sec);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      }
+
+      .bae::before {
+        content: " ";
+        font-size: 35px;
+        padding: 20px 5px;
+        text-align: center;
+        position: absolute;
+        width: 186px;
+        height: 169px;
+        top: 20px;
+        left: -55px;
+        border: 5px solid black;
+        border-radius: 20%;
+        background-color: var(--sec);
+      }
+
+      .chicken {
+        position: absolute;
+        width: 80px;
+        height : 55px;
+        top: 200px;
+        left: 65px;
+        border-radius: 50%;
+        background-color: #956527;
+        transform: rotate(-10deg);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        z-index: 10;
+      }
+      .chicken::before { 
+        content: " ";
+        position: absolute;
+        top: 7px;
+        left: 80px;
+        width: 34px;
+        height: 22px;
+        border-radius: 40%;
+        background-color: var(--pri);
+        transform: rotate(-5deg);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      }
+      .chicken::after {
+        content: " ";
+        position: absolute;
+        top: 20px;
+        left: -35px;
+        width: 34px;
+        height: 22px;
+        border-radius: 40%;
+        background-color: var(--pri);
+        transform: rotate(-5deg);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="dog">
+      <div class="hat scale">
+        <div class="circle"></div>
+      </div>
+      <div class="ear left"></div>
+      <div class="ear right"></div>
+
+      <div class="face">
+        <div class="eyebrow left"></div>
+        <div class="eyebrow right"></div>
+        <div class="eye right blinking"></div>
+        <div class="white-eye left"></div>
+        <div class="eye left"></div>
+        <div class="white-eye right"></div>
+
+        <div class="blush left"></div>
+        <div class="blush right"></div>
+        <div class="mouth left"></div>
+        <div class="mouth right"></div>
+        <div class="nose"></div>
+        <div class="tongue"></div>
+        <div class="tongueline"></div>
+
+      </div>
+      <div class="body">
+        <div class="neck"></div>
+        <div class="arm left"></div>
+        <div class="arm right"></div>
+        <div class="bae"></div>
+        <div class="chicken"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
